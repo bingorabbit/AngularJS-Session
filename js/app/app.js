@@ -1,13 +1,28 @@
-var angularApp = angular.module("angularApp", []);
+var angularApp = angular.module("angularApp", ['ngRoute', 'angularControllers']); // [] a list of requirements.
 
-angularApp.controller('FirstController', ['$scope', function($scope){
-    $scope.yourName = "Ibrahim";
-    $scope.clock = {
-        now: new Date()
-    };
-    setInterval(function(){
-        $scope.$apply(function(){
-            $scope.clock.now = new Date();
+angularApp.run(function($rootScope){
+    $rootScope.yourName = "Ibrahim";
+    $rootScope.setActive = function(tab_name){
+        $rootScope.homeActive = false;
+        $rootScope.aboutActive = false;
+        $rootScope.contactActive = false;
+        $rootScope[tab_name+'Active'] = true;
+    }
+})
+    .config(function($routeProvider){
+        $routeProvider.when('/', {
+            templateUrl: 'partials/home.html',
+            controller: 'HomeController'
         })
-    }, 1000)
-}]);
+        .when('/about',{
+            templateUrl: 'partials/about.html',
+            controller: 'AboutController'
+        })
+        .when('/contact', {
+            templateUrl: 'partials/contact.html',
+            controller: 'ContactController'
+        })
+        .otherwise({
+            redirectTo: '/'
+        })
+    });
