@@ -22,7 +22,8 @@
     </div>
 
     <div class="jumbotron">
-        <h1>Welcome!</h1>
+        <h2>Welcome, {{ yourName }}!</h2>
+        <input type="text" class="form-control" ng-model="yourName" placeholder="Please enter your name.."/>
         <p class="lead">This is a simple web page to demonstrate angular application.</p>
         <!--<p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>-->
     </div>
