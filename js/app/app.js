@@ -1,7 +1,6 @@
 var angularApp = angular.module("angularApp", ['ngRoute', 'angularControllers', 'angularServices']); // [] a list of requirements.
 
 angularApp.run(function($rootScope){
-        $rootScope.yourName = "Ibrahim";
         $rootScope.setActive = function(tab_name){
             $rootScope.homeActive = false;
             $rootScope.aboutActive = false;

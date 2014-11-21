@@ -1,4 +1,4 @@
-    <h2>Welcome, {{ yourName }}!</h2>
+    <h2 ng-init="yourName = 'Ibrahim'">Welcome, {{ yourName }}!</h2>
     <input type="text" class="form-control" ng-model="yourName" placeholder="Please enter your name.."/>
     <p class="lead">This is a simple web page to demonstrate angular application.</p>
     <p>The time now is: {{ clock.now }}</p>
